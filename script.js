@@ -25,3 +25,5 @@ function renderTasks() {
     list.appendChild(li);
   }); 
 }
+
+function removeTask(){}
