@@ -5,7 +5,7 @@ function addTask() {
   const taskText = input.value;
 
   if (taskText === "") {
-    alert("Digite uma tarefa válida!");
+    alert("Digite um trabalho válido!");
     return;
   }
 
