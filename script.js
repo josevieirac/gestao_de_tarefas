@@ -36,11 +36,24 @@ function renderTasks() {
       span.style.color = "gray";
     }
 
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remover";
+    removeButton.style.marginLeft = "10px";
+
+    removeButton.addEventListener("click", () => {
+      removeTask(index);
+    })
+
     li.appendChild(checkbox);
     li.appendChild(span);
+    li.appendChild(removeButton);
 
     list.appendChild(li);
   }); 
 }
 
-function removeTask(){}
+function removeTask(index){
+  tasks.splice(index, 1);
+
+  renderTasks();
+}
