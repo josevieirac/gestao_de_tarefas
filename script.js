@@ -9,7 +9,7 @@ function addTask() {
     return;
   }
 
-  tasks.push(taskText);
+  tasks.push({text: taskText, completed: false});
   input.value = "";
   renderTasks();
 }
@@ -20,7 +20,24 @@ function renderTasks() {
 
   tasks.forEach((task, index) => {
     const li = document.createElement("li");
-    li.textContent = task;
+    const  checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = task.completed;
+    checkbox.addEventListener("change", () => {
+      task.completed =checkbox.checked;
+      renderTasks();
+    });
+
+    const span = document.createElement("span");
+    span.textContent = task.text;
+
+    if (task.completed) {
+      span.style.textDecoration = "line-through";
+      span.style.color = "gray";
+    }
+
+    li.appendChild(checkbox);
+    li.appendChild(span);
 
     list.appendChild(li);
   }); 
