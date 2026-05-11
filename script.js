@@ -57,3 +57,11 @@ function removeTask(index){
 
   renderTasks();
 }
+
+const taskInput = document.getElementById("taskInput");
+
+taskInput.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    addTask();
+  }
+});
